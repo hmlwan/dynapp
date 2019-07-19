@@ -23,8 +23,6 @@ return array (
 			'__PLUGINS__' => '/Public/plugins',
 			'__PLUGINSJS__' => '/Public/plugins/js',
 			'__PLUGINSCSS__' => '/Public/plugins/css',
-			'__PUBLICNEWJS__' => '/Public/new/js',
-			'__PUBLICNEWCSS__' => '/Public/new/css' 
 		)
 		,
 		'SZ_QQ_SCOPE'=> 'get_user_info,add_share,list_album,add_album,upload_pic,add_topic,add_one_blog,add_weibo,check_page_fans,add_t,add_pic_t,del_t,get_repost_list,get_info,get_other_info,get_fanslist,get_idolist,add_idol,del_idol,get_tenpay_addr',
@@ -40,9 +38,9 @@ return array (
 		'COOKIE_PREFIX' => 'odr',
 		
 		
-		'APP_GROUP_LIST' => 'Admin,Common', // 项目分组设定
+		'APP_GROUP_LIST' => 'Admin,Common,Mobile', // 项目分组设定
 //		'APP_GROUP_LIST' => 'Home,Admin', // 项目分组设定
-        'DEFAULT_MODULE' => 'Admin'  , // 模版
+        'DEFAULT_MODULE' => 'Mobile'  , // 模版
 		'TMPL_ACTION_SUCCESS' => './App/Common/jump.html',
 		'TMPL_ACTION_ERROR' => './App/Common/jump.html',
 		
@@ -55,6 +53,6 @@ return array (
 		//关闭debug模式错误跳入404 
 
 
- 		//'TMPL_EXCEPTION_FILE' =>'./404.html' 
+ 		'TMPL_EXCEPTION_FILE' =>'./404.html'
 
 );

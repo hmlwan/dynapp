@@ -4,13 +4,13 @@ Navicat MySQL Data Transfer
 Source Server         : mysql
 Source Server Version : 50553
 Source Host           : localhost:3306
-Source Database       : housekeep
+Source Database       : dynapp
 
 Target Server Type    : MYSQL
 Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2019-06-27 17:17:52
+Date: 2019-07-19 21:07:10
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -3615,14 +3615,6 @@ INSERT INTO `blue_config` VALUES ('company_address', '上海市徐汇区徐虹�
 INSERT INTO `blue_config` VALUES ('qq', '', '1', 'QQ');
 INSERT INTO `blue_config` VALUES ('technical_support', 'hmlwan(824398038)', '1', '技术支持');
 INSERT INTO `blue_config` VALUES ('company_qrcode', '/Uploads/Public/Uploads/2019-06-11/5cff95d6c85dc.jpg', '2', '网站二维码');
-INSERT INTO `blue_config` VALUES ('main_jiahe_img', '/Uploads/Public/Uploads/2019-06-11/5cffbef91bd6d.jpg', '2', '首页佳禾服务');
-INSERT INTO `blue_config` VALUES ('main_logo', '/Uploads/Public/Uploads/2019-06-11/5cffbfae4fdec.png', '2', '首页logo');
-INSERT INTO `blue_config` VALUES ('intro_student_img', '/Uploads/Public/Uploads/2019-06-13/5d0253c1f3462.png', '2', '推荐学员logo');
-INSERT INTO `blue_config` VALUES ('intro_client_img', '/Uploads/Public/Uploads/2019-06-13/5d0253fd55ba0.jpg', '2', '推荐客户logo');
-INSERT INTO `blue_config` VALUES ('train_bkg_img', '/Uploads/Public/Uploads/2019-06-13/5d025862bddc4.png', '2', '培训页面logo');
-INSERT INTO `blue_config` VALUES ('scroll_img_1', '/Uploads/Public/Uploads/2019-06-13/5d0259abcd763.jpg', '2', '返回首页轮播图1');
-INSERT INTO `blue_config` VALUES ('scroll_img_2', '/Uploads/Public/Uploads/2019-06-13/5d0259c1ac4dd.jpg', '2', '返回首页轮播图2');
-INSERT INTO `blue_config` VALUES ('scroll_img_3', '/Uploads/Public/Uploads/2019-06-13/5d0259d51b839.jpg', '2', '返回首页轮播图3');
 
 -- ----------------------------
 -- Table structure for `blue_jober`
