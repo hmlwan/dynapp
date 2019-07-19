@@ -1,0 +1,147 @@
+<include file="App/Admin/View/Public/left.html"/>
+<style>
+    .glyphicon-minus:before {
+        content: "\2212";
+    }
+    .glyphicon {
+        position: relative;
+        top: 1px;
+        display: inline-block;
+        -webkit-font-smoothing: antialiased;
+        font-style: normal;
+        font-weight: normal;
+        line-height: 1;
+    }
+
+</style>
+<!--/sidebar-->
+<div class="main-wrap">
+    <div class="crumb-wrap">
+        <div class="crumb-list"><i class="icon-font">
+        </i><a href="{:U('Index/index')}">首页</a>
+            <span class="crumb-step">&gt;</span><span class="crumb-name">阿姨管理</span></div>
+    </div>
+    <div class="result-wrap">
+        <form action="{:U('Job/ayi_add')}" method="post" id="myform" name="myform" enctype="multipart/form-data">
+            <input type="hidden" name="id" value="{$info.id}">
+            <div class="config-items">
+                <div class="config-title">
+                    <h1><i class="icon-font">&#xe00a;</i>阿姨添加</h1>
+                </div>
+                <div class="result-content">
+                    <table width="100%" class="insert-tab">
+                        <tbody>
+                            <tr>
+                                <th><i class="require-red">*</i>工作类型：</th>
+                                <td>
+                                    <select name="type_id" id="type_id"  class="common-text">
+                                        <volist name="job_type" id="vo">
+                                            <option value="{$vo.type_id}" <if condition="$info['type_id'] eq $vo['type_id']">selected</if> >{$vo.type_name}</option>
+                                        </volist>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th><i class="require-red">*</i>姓名：</th>
+                                <td><input id="name" name="name" value="{$info.name}" type="text"  class="common-text"></td>
+                            </tr>
+                            <tr>
+                                <th><i class="require-red">*</i>出生年份：</th>
+                                <td><input id="birth" name="birth" value="{$info.birth}" type="text" placeholder="例如：1970年"  class="common-text"></td>
+                            </tr>
+                            <tr>
+                                <th><i class="require-red">*</i>头像：</th>
+                                <td><input id="head_img" name="head_img" value="" type="file"  class="common-text">
+                                    <img src="{$info.head_img}" style="height: 100px;width: 100px" alt="">
+                                </td>
+                                <input type="hidden" name="head_img1" value="{$info.head_img}">
+                            </tr>
+                            <tr>
+                                <th><i class="require-red">*</i>生活照片：</th>
+                                <td><input id="life_img" name="life_img" value="" type="file"  class="common-text">
+                                    <img src="{$info.life_img}" style="height: 100px;width: 100px" alt="">
+                                </td>
+                                <input type="hidden" name="life_img1" value="{$info.life_img}">
+                            </tr>
+                            <tr>
+                                <th><i class="require-red">*</i>年龄：</th>
+                                <td><input id="age" name="age" value="{$info.age}" type="text"  class="common-text"></td>
+                            </tr>
+                            <tr>
+                                <th><i class="require-red">*</i>语言：</th>
+                                <td><input id="lang" name="lang" value="{$info.lang}" type="text"  class="common-text"></td>
+                            </tr>
+                            <tr>
+                                <th><i class="require-red">*</i>工作年限：</th>
+                                <td><input id="work_years" name="work_years" value="{$info.work_years}" type="text"  class="common-text"></td>
+                            </tr>
+                            <tr>
+                                <th><i class="require-red">*</i>学历：</th>
+                                <td><input id="edu" name="edu" value="{$info.edu}" type="text"  class="common-text"></td>
+                            </tr>
+                            <tr>
+                                <th><i class="require-red">*</i>区域：</th>
+                                <td><input id="area" name="area" value="{$info.area}" type="text"  class="common-text"></td>
+                            </tr>
+                            <tr>
+                                <th><i class="require-red">*</i>籍贯：</th>
+                                <td><input id="place" name="place" value="{$info.place}" type="text"  class="common-text"></td>
+                            </tr>
+                            <tr>
+                                <th><i class="require-red">*</i>属相：</th>
+                                <td><input id="zodiac" name="zodiac" value="{$info.zodiac}" type="text"  class="common-text"></td>
+                            </tr>
+                            <tr>
+                                <th><i class="require-red">*</i>资质证书：</th>
+                                <td>
+                                    <textarea name="certificate" id="certificate" style="height:auto" class="common-text" cols="50" rows="3">{$info.certificate}</textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th><i class="require-red">*</i>工作经历：</th>
+                                <td>
+                                    <textarea name="work_exp" id="work_exp" class="common-text" style="height:auto" cols="50" rows="3">{$info.work_exp}</textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th><i class="require-red">*</i>专业技巧：</th>
+                                <td>
+                                    <textarea name="work_skill" id="work_skill" class="common-text" style="height:auto" cols="50" rows="3">{$info.work_skill}</textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th><i class="require-red">*</i>自我评价：</th>
+                                <td>
+                                    <textarea name="evaluate" id="evaluate" class="common-text" style="height:auto" cols="50" rows="3">{$info.evaluate}</textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th><i class="require-red"></i>状态：</th>
+                                <td>
+                                    <select name="status" id="status"  class="common-text">
+                                        <option value="1" <if condition="$info['status'] eq '1'">selected</if> >开启</option>
+                                        <option value="0" <if condition="$info['status'] eq '0'">selected</if>>关闭</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th></th>
+                                <td>
+                                    <input type="button" onclick="subform()" value="提交" class="btn btn-primary btn6 mr10">
+                                    <a href="{:U('Job/index')}"><input type="button" value="返回"  class="btn btn6"></a>
+                                </td>
+                            </tr>
+                        </tbody></table>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    function subform(){
+        $('#myform').submit();
+    }
+</script>
+</div>
+</body>
+</html>

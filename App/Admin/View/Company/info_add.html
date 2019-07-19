@@ -1,0 +1,129 @@
+<include file="App/Admin/View/Public/left.html"/>
+<style>
+    .glyphicon-minus:before {
+        content: "\2212";
+    }
+    .glyphicon {
+        position: relative;
+        top: 1px;
+        display: inline-block;
+        -webkit-font-smoothing: antialiased;
+        font-style: normal;
+        font-weight: normal;
+        line-height: 1;
+    }
+
+</style>
+
+<!--/sidebar-->
+<div class="main-wrap">
+    <div class="crumb-wrap">
+        <div class="crumb-list"><i class="icon-font">
+        </i><a href="{:U('Index/index')}">首页</a>
+            <span class="crumb-step">&gt;</span><span class="crumb-name">公司信息</span></div>
+    </div>
+    <div class="result-wrap">
+        <form action="{:U('Company/info_add')}" method="post" id="myform" name="myform" enctype="multipart/form-data">
+            <input type="hidden" name="id" value="{$info.id}">
+            <div class="config-items">
+                <div class="config-title">
+                    <h1><i class="icon-font">&#xe00a;</i>信息添加</h1>
+                </div>
+                <div class="result-content">
+                    <table width="100%" class="insert-tab">
+                        <tbody>
+                        <tr>
+                            <th><i class="require-red">*</i>公司名称：</th>
+                            <td><input id="name" name="name" value="{$info.name}" type="text"  class="common-text"></td>
+                        </tr>
+                        <tr>
+                            <th><i class="require-red">*</i>企业文化：</th>
+                            <td>
+                                <textarea name="culture" style=" height: initial;" id="culture" class="common-text btn50" cols="20" rows="3">{$info.culture}</textarea>
+                                <span style="color: #FF0000">(多个用+隔开，例如：爱心+责任+奉献)</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><i class="require-red">*</i>企业服务：</th>
+                            <td>
+                                <textarea name="service" style=" height: initial;" id="service" class="common-text btn50" cols="30" rows="3">{$info.service}</textarea>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th><i class="require-red">*</i>介绍：</th>
+                            <td>
+                                <textarea name="introduce" style=" height: initial;" id="introduce" class="common-text btn50" cols="30" rows="3">{$info.introduce}</textarea>
+                            </td>
+                        </tr>
+                        <tr class="img_item">
+                            <th><i class="require-red">*</i>服务图片：</th>
+                            <td><a href="javascript:void(0);" id="addimgs" type="button" class="btn btn-primary  mr10">添加服务图片</a></td>
+                        </tr>
+
+                        <if condition="$info['img_arr']">
+                            <volist name="info['img_arr']" id="v">
+                                <tr class="img_item" key="{$key+1}">
+                                    <th></th>
+                                    <td><input  name="course_img_{$key+1}" value="{$v}" type="file"  class="common-text">
+                                        <img src="{$v}" style="width: 80px;height: 80px" alt="">
+                                        <input type="hidden" name="img_{$key+1}" value="{$v}">
+                                        <button class="col-md-2 btn btn-sm btn-danger btnDelImg" type="button" style="border-radius:50% !important;width:30px;height:30px;margin-left: 20px;"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></button>
+                                        </td>
+                                    </tr>
+                            </volist>
+
+                        </if>
+
+                        <tr>
+                            <th><i class="require-red"></i>状态：</th>
+                            <td>
+                                <select name="status" id="status"  class="common-text">
+                                    <option value="1" <if condition="$info['status'] eq '1'">selected</if> >开启</option>
+                                    <option value="0" <if condition="$info['status'] eq '0'">selected</if>>关闭</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <td>
+                                <input type="button" onclick="subform()" value="提交" class="btn btn-primary btn6 mr10">
+                                <a href="{:U('Company/info')}"><input type="button" value="返回"  class="btn btn6"></a>
+                            </td>
+                        </tr>
+                        </tbody></table>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    function subform(){
+        $('#myform').submit();
+    }
+    $("#addimgs").click(function () {
+
+        var len = $(".img_item:last").attr('key');
+        if(len == undefined || len== NaN){
+            len = 0;
+        }
+        console.log(len);
+        len = parseInt(len)+1;
+        var html = '<tr class="img_item" key="'+len+'">'+
+            '<th></th>'+
+            '<td><input  name="course_img_'+len+'" value="" type="file"  class="common-text">'+
+            '<img src="" style="width: 100px;height: 100px" alt="">'+
+            '<input type="hidden" name="img_'+len+'" value="">'+
+            '<button class="col-md-2 btn btn-sm btn-danger btnDelImg" type="button" style="border-radius:50% !important;width:30px;height:30px;margin-left: 20px;"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></button>'+
+            '</td>'+
+            '</tr>';
+        $(".img_item:last").after(html);
+    });
+    $(document).on("click",'.btnDelImg',function () {
+        $(this).closest(".img_item").remove();
+    });
+
+</script>
+</div>
+</body>
+</html>

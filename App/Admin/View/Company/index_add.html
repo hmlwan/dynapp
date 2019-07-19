@@ -1,0 +1,78 @@
+<include file="App/Admin/View/Public/left.html"/>
+<style>
+    .glyphicon-minus:before {
+        content: "\2212";
+    }
+    .glyphicon {
+        position: relative;
+        top: 1px;
+        display: inline-block;
+        -webkit-font-smoothing: antialiased;
+        font-style: normal;
+        font-weight: normal;
+        line-height: 1;
+    }
+</style>
+<!--/sidebar-->
+<div class="main-wrap">
+    <div class="crumb-wrap">
+        <div class="crumb-list"><i class="icon-font">
+        </i><a href="{:U('Index/index')}">首页</a>
+            <span class="crumb-step">&gt;</span><span class="crumb-name">公司管理</span></div>
+    </div>
+    <div class="result-wrap">
+        <form action="{:U('Company/index_add')}" method="post" id="myform" name="myform" enctype="multipart/form-data">
+            <input type="hidden" name="id" value="{$info.id}">
+            <div class="config-items">
+                <div class="config-title">
+                    <h1><i class="icon-font">&#xe00a;</i>公司添加</h1>
+                </div>
+                <div class="result-content">
+                    <table width="100%" class="insert-tab">
+                        <tbody>
+                        <tr>
+                            <th><i class="require-red">*</i>公司名称：</th>
+                            <td><input id="name" name="name" value="{$info.name}" type="text"  class="common-text btn10"></td>
+                        </tr>
+                        <tr>
+                            <th><i class="require-red">*</i>公司地址：</th>
+                            <td><input id="address" name="address" value="{$info.address}" type="text"  class="common-text btn50"></td>
+                        </tr>
+                        <tr>
+                            <th><i class="require-red">*</i>联系人：</th>
+                            <td><input id="contact" name="contact" value="{$info.contact}" type="text"  class="common-text btn50"></td>
+                        </tr>
+                        <tr>
+                            <th><i class="require-red">*</i>联系电话：</th>
+                            <td><input id="phone" name="phone" value="{$info.phone}" type="text"  class="common-text btn10"></td>
+                        </tr>
+                        <tr>
+                            <th><i class="require-red"></i>状态：</th>
+                            <td>
+                                <select name="status" id="status"  class="common-text btn10">
+                                    <option value="1" <if condition="$info['status'] eq '1'">selected</if> >开启</option>
+                                    <option value="0" <if condition="$info['status'] eq '0'">selected</if>>关闭</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <td>
+                                <input type="button" onclick="subform()" value="提交" class="btn btn-primary btn6 mr10">
+                                <a href="{:U('Company/index')}"><input type="button" value="返回"  class="btn btn6"></a>
+                            </td>
+                        </tr>
+                        </tbody></table>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    function subform(){
+        $('#myform').submit();
+    }
+</script>
+</div>
+</body>
+</html>

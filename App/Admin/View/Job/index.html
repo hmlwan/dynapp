@@ -1,0 +1,102 @@
+<include file="App/Admin/View/Public/left.html"/>
+<!--/sidebar-->
+
+<div class="main-wrap">
+
+    <div class="crumb-wrap">
+        <div class="crumb-list">
+            <i class="icon-font"></i>
+            <a href="{:U('Index/index')}">首页</a>
+            <span class="crumb-step">&gt;</span>
+            <span class="crumb-name">工作类型管理</span>
+        </div>
+    </div>
+    <div class="search-wrap">
+
+    </div>
+    <div class="result-wrap">
+
+        <div class="result-title">
+            <div class="result-list">
+                <a href="{:U('Job/job_add')}#2#0"><i class="icon-font"></i>新增类型</a>
+            </div>
+            <form action="{:U('Job/index')}" method="get">
+                <table class="search-tab">
+                    <tr>
+                        <td width="50">名称:</td>
+                        <td><input class="common-text" placeholder="名称" name="string" type="text" value="{$_GET['string']}"></td>
+                        <td><input class="btn btn-primary btn2"  value="查询" type="submit"></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+        <div class="result-content">
+            <table class="result-tab" width="100%">
+                <tr>
+
+                    <th>ID</th>
+                    <th>工作类型名称</th>
+                    <th>概述</th>
+                    <th>图片</th>
+                    <th>状态</th>
+                    <th>操作人</th>
+                    <th>创建时间</th>
+                    <th>操作</th>
+                </tr>
+                <volist name='info' id='vo'>
+                    <tr>
+                        <td>{$vo['type_id']}</td>
+                        <td>{$vo['type_name']}</td>
+                        <td>{$vo['introduce']}</td>
+                        <td>
+                            <a href="{$vo['img']}" target="_blank">
+                                <img src="{$vo['img']}" style="width: 100px;height: 100px" alt="">
+                            </a>
+
+                        </td>
+                        <td><if condition="$vo['status'] eq 1">
+                                开启
+                            </if>
+                            <if condition="$vo['status'] eq 0">
+                                关闭
+                            </if>
+                        </td>
+                        <td>{$vo['op_man']}</td>
+                        <td>{$vo['op_time'] | date="Y-m-d H:i:s",###}</td>
+                        <td>
+                            <a class="link-update" href="{:U('Job/job_add#2#0',array('id'=>$vo['type_id']))}#13#0">修改|</a>
+                            <a href="javascript:void(0)" class="link-del" onclick="cexiao({$vo.type_id})">删除</a>
+                        </td>
+                    </tr>
+                </volist>
+
+            </table>
+            <div class="list-page"> <ul>{$page}</ul></div>
+        </div>
+
+    </div>
+</div>
+<!--/main-->
+</div>
+</body>
+</html>
+<script>
+    function cexiao(type_id){
+        layer.confirm('确定删除吗？', {
+            btn: ['确定','取消'], //按钮
+            title: '撤销删除'
+        }, function(){
+            $.post("{:U('Job/del')}",{id:type_id,model:'job_type'},function(data){
+                if(data['status'] == 1){
+                    layer.msg(data['info'],{icon:1});
+                    setTimeout(function(){location.reload();},1000);
+                }else{
+                    layer.msg(data['info']);
+                }
+            })
+        }, function(){
+            layer.msg('已取消');
+        });
+
+    }
+</script>
