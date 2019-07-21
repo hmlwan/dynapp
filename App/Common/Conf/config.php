@@ -53,6 +53,6 @@ return array (
 		//关闭debug模式错误跳入404 
 
 
- 		'TMPL_EXCEPTION_FILE' =>'./404.html'
+// 		'TMPL_EXCEPTION_FILE' =>'./404.html'
 
 );

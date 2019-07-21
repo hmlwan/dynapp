@@ -1,5 +1,252 @@
 body{
     width: 100%;
+    position: relative;
+    max-width: 640px;
+    line-height: 1;
 }
+
+.box{
+    margin: 0 auto;
+    width: 100%;
+    max-width: 640px;;
+}
+.header_item{
+    position: fixed;
+    top:0;
+    width: 100%;
+    max-width: 640px;
+    height: 1rem;
+    background-color: rgba(0,0,0,0.7);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 99999;
+    padding: .08rem .01rem;
+    font-size: 0;
+}
+.header_l{
+    width: 1rem;
+
+}
+.header_l img{
+    width: 100%;
+}
+.header_item ul{
+    font-size: .16rem;
+    color:#fff;
+}
+.header_item li{
+    margin-bottom:.1rem ;
+}
+.header_item li img{
+    width:.2rem;
+    padding-left: .005rem;
+}
+
+.header_item .shangfen{
+    width:1.6rem
+}
+.header_item .shangfen img{
+    width: 100%;
+}
+
+.header_s span{
+    padding: 0 .02rem;
+    display: inline-block;
+}
+.header_item ul .header_s span:first-child{
+    border: 1px solid #1e90ff;
+    color: #1e90ff;
+}
+.header_item ul .header_s span:nth-child(2){
+    color: #ff8c00;
+    border: 1px solid #ff8c00;
+}
+
+.header_item ul .header_s span:nth-child(3){
+    color: #32cd32;
+    border: 1px solid #32cd32;
+}
+.con_item{
+    width: 100%;
+    padding-top: 1.16rem;
+}
+.con_item img{
+    width: 100%;
+}
+
+/*游戏类目*/
+.game_cate{
+    width: 100%;
+}
+
+.category h2 span{
+    font-size: 0.25rem;
+    line-height: 1.5 ;
+    color: #666;
+    padding: 0.1rem 0 0.1rem 0.08rem;
+    border-left: 0.1rem solid #9d5524;
+    padding-left: 10px;
+    background: #f7f7f7;
+    text-align: left;
+    width: 100%;
+    display: inline-block;
+}
+
+
+.game_cate ul{
+    padding: 0 0.2rem;
+
+
+}
+.game_cate ul li{
+    padding: 0.2rem 0;
+    border-bottom: 1px solid #e5e5e5;
+    display: flex;
+    align-content: center;
+    justify-content: space-around;
+    font-size: 0;
+}
+
+.game_cate ul li img{
+    width: 15%;
+}
+
+.game_cate ul li div{
+    width: 68%;
+    margin: 0 2%;
+}
+.game_cate ul li div h2{
+    font-size: 0.25rem
+}
+.game_cate ul li div p{
+    font-size: 0.18rem;
+    color: #909090;
+    margin: 0.1rem 0;
+}
+
+.game_cate ul li div img{
+    width: 5.55%;
+}
+.game_cate ul li div h3{
+    font-size: 0.18rem;
+    color: #b94b00;
+    line-height: 1.2;
+}
+.game_cate ul li a button{
+    width: 1rem;
+    background: #ffc000;
+    border: 0.05rem solid #ffecb2;
+    -webkit-border-radius: 0.2rem;
+    border-radius: 0.2rem;
+    padding: 0.1rem;
+    color: #fff;
+    cursor: pointer;
+    font-size: 0.25rem;
+}
+
+/*游戏详情*/
+.rq_detail{
+    background-color: #f7f7f7;
+    width: 100%;
+
+}
+.rq_detail .detail{
+    width: 96%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.rq_detail .detail .game-title{
+    width: 2.5rem;
+}
+.rq_detail .detail .game-con{
+    width: 95%;
+    background: #ffc000;
+    border: 0.05rem solid #ffecb2;
+    -webkit-border-radius: 0.2rem;
+    border-radius: 0.2rem;
+    margin: 0.1rem auto;
+}
+
+.copyright{
+    font-size: 0.2rem;
+    padding: 0.2rem;
+    text-align: center;
+    font-weight: 800;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
