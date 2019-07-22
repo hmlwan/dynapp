@@ -1,0 +1,65 @@
+<include file="Public:header"/>
+<body>
+<div>
+    <header>
+        <div class="gwc_bt">
+            <a href="javascript:history.back()" class="gwcdd_fh"><div class="gwcbt_fh"></div></a>
+            <div class="gwcbt_mc">提款</div>
+        </div>
+    </header>
+    <div class="tkxx">
+        <div class="tk_title">提示信息</div>
+        <div class="tk_con">
+            1. 每天的提款处理时间为：<font color="red">00:00</font> 至 <font color="red">23:59</font>;<br>
+            2.提款3分钟内到账。(如遇高峰期，可能需要延迟到十分钟内到账);<br>
+            3. 用户每日最小提款<font color="red">50</font> 元，最大提款<font color="red">2000000</font>元;<br>
+            4. 今日可提款 不限制 次，已提款0 次 ;
+        </div>
+        <div class="tk_title">消费比例</div>
+        <div class="tk_con">
+            1. 出款需达投注量：<font color="red">0.00</font>,当前有效投注金额：<font color="red">0.00</font><br>
+            2. 是否能取款：<font color="red">是 </font>
+        </div>
+
+        <div class="confirm_btn" onclick="sub()"><span>下一步</span></div>
+    </div>
+</div>
+<script>
+    function sub(){
+
+        var bankname = $("input[name='bankname']").val();
+        var cardname = $("input[name='cardname']").val();
+        var cardnum = $("input[name='cardnum']").val();
+        var id = $("input[name='id']").val();
+
+        if(bankname == ""||bankname == null){
+            layer.msg('请输入银行名称');
+            return false;
+        }
+        if(cardname == ""||cardname == null){
+            layer.msg('请输入用户名');
+            return false;
+        }
+        if(cardnum == ""||cardnum == null){
+            layer.msg('请输入卡号');
+            return false;
+        }
+        $.post("{:U('Member/addbank')}",{
+            bankname:bankname,
+            cardname:cardname,
+            cardnum:cardnum,
+            id:id,
+        },function(data){
+            if(data.status==1){
+                layer.msg(data.info,{icon:1});
+                window.location="/Mobile/Member/banklist";
+            }else{
+                layer.msg(data.info);
+                return false;
+            }
+        })
+    };
+
+</script>
+<include file="Public:footer"/>
+

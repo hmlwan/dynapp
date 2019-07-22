@@ -3,26 +3,34 @@
 <div>
     <header>
         <div class="gwc_bt">
-            <div class="gwcbt_fh"><a href="javascript:history.back()" class="gwcdd_fh"></a></div>
-            <div class="gwcbt_mc">银行卡信息</div>
+            <a href="javascript:history.back()" class="gwcdd_fh"><div class="gwcbt_fh"></div></a>
+            <div class="gwcbt_mc">绑定新的银行卡</div>
         </div>
-        <div style="height: .74rem;clear: both;"></div>
     </header>
     <div class="yhkxx xgmm">
+        <div>带<font color="red">*</font>号为必填项</div>
         <div>
-            <label for="">银行</label>
-            <input type="text" name="bankname" value="{$info.bankname}" <if condition="$info['bankname']">readonly</if>   placeholder="请输入银行"/>
+            <label for=""><font color="red">*</font>持 卡&nbsp; 人</label>
+            <input type="text" name="bankname" value="{$info.bankname}" <if condition="$info['bankname']">readonly</if>   placeholder="请输入持卡人"/>
         </div>
         <div>
-            <label for="">用户名</label>
-            <input type="text" name="cardname" value="{$info.cardname}"  placeholder="请输入用户名" />
+            <label for=""><font color="red">*</font>提款银行</label>
+            <input type="text" name="cardname" value="{$info.cardname}"  placeholder="请输入提款银行" />
         </div>
         <div>
-            <label for="">卡号</label>
-            <input type="text" name="cardnum" value="{$info.cardnum}" placeholder="请输入卡号" />
+            <label for="">&nbsp;&nbsp;开户网点</label>
+            <input type="text" name="cardnum" value="{$info.cardnum}" placeholder="请输入开户网点" />
+        </div>
+        <div>
+            <label for=""><font color="red">*</font>银行卡号</label>
+            <input type="text" name="cardnum" value="{$info.cardnum}" placeholder="请输入银行卡号" />
+        </div>
+        <div>
+            <label for=""><font color="red">*</font>提款密码</label>
+            <input type="password" name="cardnum" value="{$info.cardnum}" placeholder="请输入提款密码" />
         </div>
         <input type="hidden" name="id" value="{$info.id}">
-        <div class="confirm_btn" onclick="sub()">确&nbsp;认</div>
+        <div class="confirm_btn" onclick="window.location='/Mobile/Member/withdraw_money'"><span>下一步</span></div>
     </div>
 </div>
 <script>

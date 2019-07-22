@@ -1,18 +1,19 @@
 <include file="Public:header"/>
 <body>
 <div>
-    <div class="login_bgk">
-        <div class="jump_btn">
-            <a class="jump_active" href="javascript:void(0);">登&nbsp;录</a><a href="{:U('Reg/index')}">注&nbsp;册</a>
+    <header>
+        <div class="gwc_bt">
+            <a href="javascript:history.back()" class="gwcdd_fh"><div class="gwcbt_fh"></div></a>
+            <div class="gwcbt_mc">登录</div>
         </div>
-    </div>
-
+    </header>
     <div class="form-login">
         <form action="">
-            <div class="nametext"><input type="text" placeholder="请输入用户名" id="username" name="username"><i></i></div>
-            <div class="pwdtext"><input type="password" placeholder="请输入密码" id="password" name="password"><i></i></div>
-            <div class="logintext" onclick="sub()">登&nbsp;录</div>
-            <a href="{:U('Login/forgetpwd')}"><div class="forgetpwd">忘记密码</div></a>
+            <div class="nametext"><i></i><input type="text" placeholder="请输入用户名" id="username" name="username"></div>
+            <div class="pwdtext"><i></i><input type="password" placeholder="请输入密码" id="password" name="password"></div>
+            <div class="logintext" onclick="sub()"><span>登&nbsp;录</span></div>
+            <div class="logintext reg"><a href="{:U('reg/index')}">立即注册</a></div>
+            <!--<a href="{:U('Login/forgetpwd')}"><div class="forgetpwd">忘记密码</div></a>-->
         </form>
     </div>
 </div>
@@ -39,7 +40,7 @@
                 }else{
                     layer.msg("登录成功",{icon:1});
                     window.setTimeout(function(){
-                        window.location="{:U('Member/index')}";
+                        window.location="{:U('Login/index')}";
                     },1000);
                 }
 

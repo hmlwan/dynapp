@@ -1,27 +1,13 @@
 <?php
 namespace Mobile\Controller;
 
-use Home\Controller\HomeController;
-class MemberController extends HomeController {
+use Common\Controller\CommonController;
+class MemberController extends CommonController {
     private $member_id;
  	public function _initialize(){
  		parent::_initialize();
         $this->member_id = session('USER_KEY_ID');
-        $mem_status = 0;
-        $member_info = M('member_info')->where(array('member_id'=>$this->member_id))->find();
-        if(!$member_info || (!$member_info['wechat_logo'] && !$member_info['alipay_logo'] )){
-            $mem_status = 1; /*完善个人信息*/
-        }elseif ($member_info['is_pay_deposit'] != 1){
-            $audit_info = M('deposit_auth')
-                ->where(array('member_id'=>$this->member_id ))
-                ->find();
-            if(!$audit_info || $audit_info['status'] == 0){
-                $mem_status = 2; /*付押金*/
-            }elseif ($audit_info['status'] == 3){
-                $mem_status = 3; /*审核失败*/
-            }
-        }
-        $this->assign('mem_status',$mem_status);
+
  	}
 	//空操作
 	public function _empty(){
@@ -35,24 +21,7 @@ class MemberController extends HomeController {
         $model = D('Member');
         $info = $model->get_info_by_id($member_id);
         /*是否交了押金*/
-        $audit_info = M('deposit_auth')
-            ->where(array('member_id'=>$this->member_id ))
-            ->find();
-        $info['is_give_deposit'] = $audit_info['status'];
 
-        $this->assign('list',$info);
-
-        /*佣金*/
-        $commission_sum = M("member_trade_record")
-            ->where(array('member_id'=>$member_id,'type'=>2))
-            ->sum('commision');
-        /*支付*/
-        $money_sum = M("member_trade_record")
-            ->where(array('member_id'=>$member_id,'type'=>1))
-            ->sum('money');
-
-        $this->assign('commission_sum',$commission_sum);
-        $this->assign('money_sum',$money_sum);
 	    $this->display();
     }
 
@@ -174,7 +143,8 @@ class MemberController extends HomeController {
 
     /*添加银行卡*/
     public function addbank(){
-        $model = M('member_bank');
+//        $model = M('member_bank');
+        $model = '';
         if(IS_POST){
             $bankname = I('bankname');
             $cardname = I('cardname');
@@ -211,12 +181,14 @@ class MemberController extends HomeController {
             }
         }else{
             $id = I('get.id');
-            $info = $model->where(array( 'id' => $id))->find();
-            $this->assign('info',$info);
+//            $info = $model->where(array( 'id' => $id))->find();
+//            $this->assign('info',$info);
             $this->display();
         }
     }
-
+    public function withdraw_money(){
+        $this->display();
+    }
 
 
 

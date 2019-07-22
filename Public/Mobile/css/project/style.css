@@ -80,7 +80,7 @@ body{
     width: 100%;
 }
 
-.category h2 span{
+.category h1{
     font-size: 0.25rem;
     line-height: 1.5 ;
     color: #666;
@@ -89,8 +89,6 @@ body{
     padding-left: 10px;
     background: #f7f7f7;
     text-align: left;
-    width: 100%;
-    display: inline-block;
 }
 
 
@@ -109,7 +107,7 @@ body{
 }
 
 .game_cate ul li img{
-    width: 15%;
+    width: 12%;
 }
 
 .game_cate ul li div{
@@ -142,7 +140,7 @@ body{
     padding: 0.1rem;
     color: #fff;
     cursor: pointer;
-    font-size: 0.25rem;
+    font-size: 0.28rem;
 }
 
 /*游戏详情*/
@@ -170,14 +168,221 @@ body{
 }
 
 .copyright{
-    font-size: 0.2rem;
+    font-size: 0.25rem;
     padding: 0.2rem;
     text-align: center;
     font-weight: 800;
+    margin-bottom: 1.2rem;
+}
+
+/*登录*/
+header{
+    position: fixed;
+    height: 1rem;
+    background-color: #ec2829;
+    top: 0;
+    margin: 0 auto;
+    text-align: center;
+    color: #fff;
+    font-size: .3rem;
+    line-height: 1rem;
+    width: 100%;
+    max-width: 640px;
+}
+.gwcbt_fh{
+    background: url("../../images/backw.png") no-repeat center;
+    height: 1rem;
+    width: .2rem;
+    position: fixed;
+    margin-left: .2rem;
+    background-size: 100%;
+}
+.form-login{
+    width: 100%;
+    max-width: 640px;
+    margin-top:1rem
+}
+.form-login div{
+    width: 100%;
+    max-width: 640px;
+    height: 1rem;
+    border-bottom:1px solid #ddd;
+    line-height: 1rem;
+    display: inline-flex;
+}
+.form-login div input{
+    border: 0;
+    padding: 5px 0 5px 15px;
+    font-size: .3rem;
+}
+.form-login .nametext i{
+    background: url("../../images/login_peo.png") no-repeat center;
+    width: .5rem;
+    height: 1rem;
+    background-size: 100%;
+    display: inline-block;
+    margin-left: 15px;
+}
+.form-login .pwdtext i{
+    background: url("../../images/login_pass.png") no-repeat center;
+    width: .5rem;
+    height: 1rem;
+    background-size: 100%;
+    display: inline-block;
+    margin-left: 15px;
+}
+.form-login form  .logintext{
+    text-align: center;
+    border-bottom: 0;
+    margin-top: .5rem;
+}
+.form-login .logintext span{
+    text-align: center;
+    color: #fff;
+    background-color: #ec2829;
+    width: 90%;
+    margin: 0 auto;
+    border-radius: 10px;
+    height: .8rem;
+    line-height: .8rem;
+}
+.form-login .logintext a{
+    text-align: center;
+    color: #ec2829;
+    width: 90%;
+    margin: 0 auto;
+    border-radius: 10px;
+    height: .8rem;
+    line-height: .8rem;
+    border: 1px solid #ddd;
+}
+
+/*个人中心*/
+.mem_bgk{
+    background-color: #cd0005;
+    width: 100%;
+}
+.mem_con{
+    width: 100%;
+    display: flex;
+    height: 1rem;
+    line-height: 1rem;
+    align-items: center;
+    justify-content: space-around;
+    font-size: .32rem;
+    color:#fff;
+    border-bottom: 1px solid #b50003;
+}
+.mem_con span{
+    color:#fff;
+}
+.mem_con img{
+    width: 20%;
+    vertical-align: middle;
+    padding-right: .2rem;
+}
+.mem_con a  span i{
+    background: url('../../images/right.png') no-repeat center;
+    width: .25rem;
+    height: 1rem;
+    background-size: 100%;
+    display: inline-block;
+    margin-left: 10px
+}
+.yue span i{
+    background: url('../../images/coin.png') no-repeat center;
+    width: .4rem;
+    height: .4rem;
+    background-size: 100%;
+    display: inline-block;
+    margin-right: 5px
+}
+.mem_op a ,.mem_op span{
+    display: inline-flex;
+}
+.mem_op .cz i{
+    background: url('../../images/cz.png') no-repeat center;
+    width: .5rem;
+    height: 1rem;
+    background-size: 100%;
+    display: inline-block;
+    margin-right: 5px
+}
+
+.mem_op .tk i{
+    background: url('../../images/tk.png') no-repeat center;
+    width: .6rem;
+    height: 1rem;
+    background-size: 120%;
+    display: inline-block;
+    margin-right: 5px
+}
+/*绑定新的银行卡*/
+.yhkxx{
+    margin-top: 1rem;
+    width: 100%;
+    font-size: .35rem;
+}
+
+.yhkxx div{
+    padding: .3rem .5rem;
+    border-bottom: 1px solid #e7e7e7;
+}
+.yhkxx div:first-child{
+    text-align: center;
+}
+.yhkxx input{
+    border: 0;
+    padding-left: 20px;
+    width: 60%;
+    font-size: .3rem;
+}
+.yhkxx .confirm_btn{
+    color:#fff;
+    text-align: center;
+    border-bottom: none;
+
+}
+.confirm_btn span{
+    width: 94%;
+    margin: 0 auto;
+    background-color: #f6383a;
+    border-radius: 10px;
+    display: inline-block;
+    padding: .2rem 0 ;
 }
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /*底部-top*/
+.footer_main{position: fixed;bottom:0;width: 100%;max-width:640px;height: 1rem;background-color: rgba(0,0,0,0.7);z-index: 9;}
+.footer_main ul{width: 100%;font-size: .2rem;}
+.footer_main ul li{float:left;width: 25%;padding: .55rem 0 .1rem 0;text-align: center;position: relative;}
+.footer_main ul li {color: #ffffff;}
+.footer_main ul li.footer_sy{background: url("../../images/footer_syact.png") center .1rem no-repeat;background-size: .43rem;}
+.footer_main ul li.footer_fl{background: url("../../images/footer_fl.png") center .1rem no-repeat;background-size: .43rem;}
+.footer_main ul li.footer_tg{background: url("../../images/footer_tg.png") center .1rem no-repeat;background-size: .43rem;}
+.footer_main ul li.footer_hyzx{background: url("../../images/footer_hyzx.png") center .1rem no-repeat;background-size: .43rem;}
+.footer_main ul li .footer_active{display: inline-block;background: url("../../images/footer_active.png") center no-repeat;width: .12rem;height: .06rem;background-size: 0.12rem;position: absolute;top:0;left: 50%;margin: 0 -.06rem;}
+/*底部-end*/
 
 
 
