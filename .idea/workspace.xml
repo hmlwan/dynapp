@@ -18,7 +18,7 @@
     <favorites_list name="xiao" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.7145606">
+    <splitter split-orientation="horizontal" split-proportion="0.5881976">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
@@ -53,8 +53,8 @@
           <file leaf-file-name="withdraw_money.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/App/Mobile/View/Member/withdraw_money.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="420">
-                  <caret line="20" column="40" lean-forward="false" selection-start-line="20" selection-start-column="40" selection-end-line="20" selection-end-column="40" />
+                <state relative-caret-position="210">
+                  <caret line="10" column="28" lean-forward="false" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="28" />
                   <folding />
                 </state>
               </provider>
@@ -63,7 +63,7 @@
           <file leaf-file-name="MemberController.class.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/App/Mobile/Controller/MemberController.class.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="510">
+                <state relative-caret-position="1266">
                   <caret line="188" column="34" lean-forward="false" selection-start-line="188" selection-start-column="20" selection-end-line="188" selection-end-column="34" />
                   <folding />
                 </state>
@@ -144,8 +144,8 @@
           <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Public/Mobile/css/project/style.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="307">
-                  <caret line="339" column="7" lean-forward="false" selection-start-line="339" selection-start-column="7" selection-end-line="339" selection-end-column="7" />
+                <state relative-caret-position="538">
+                  <caret line="359" column="7" lean-forward="false" selection-start-line="359" selection-start-column="7" selection-end-line="359" selection-end-column="7" />
                   <folding />
                 </state>
               </provider>
@@ -206,10 +206,10 @@
         <option value="$PROJECT_DIR$/App/Mobile/View/Reg/index.html" />
         <option value="$PROJECT_DIR$/App/Mobile/View/Login/index.html" />
         <option value="$PROJECT_DIR$/App/Mobile/View/Member/index.html" />
-        <option value="$PROJECT_DIR$/Public/Mobile/css/project/style.css" />
         <option value="$PROJECT_DIR$/App/Mobile/Controller/MemberController.class.php" />
         <option value="$PROJECT_DIR$/App/Mobile/View/Member/addbank.html" />
         <option value="$PROJECT_DIR$/App/Mobile/View/Member/withdraw_money.html" />
+        <option value="$PROJECT_DIR$/Public/Mobile/css/project/style.css" />
       </list>
     </option>
   </component>
@@ -591,7 +591,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="62584000" />
+    <option name="totallyTimeSpent" value="63210000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1002,26 +1002,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Public/Mobile/css/project/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/App/Mobile/View/Member/accountinfo.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/App/Mobile/Controller/MemberController.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="188" column="34" lean-forward="false" selection-start-line="188" selection-start-column="20" selection-end-line="188" selection-end-column="34" />
           <folding />
         </state>
       </provider>
@@ -1038,10 +1022,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/App/Mobile/Controller/MemberController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1266">
+          <caret line="188" column="34" lean-forward="false" selection-start-line="188" selection-start-column="20" selection-end-line="188" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/App/Mobile/View/Member/withdraw_money.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="20" column="40" lean-forward="false" selection-start-line="20" selection-start-column="40" selection-end-line="20" selection-end-column="40" />
+        <state relative-caret-position="210">
+          <caret line="10" column="28" lean-forward="false" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Public/Mobile/css/project/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="538">
+          <caret line="359" column="7" lean-forward="false" selection-start-line="359" selection-start-column="7" selection-end-line="359" selection-end-column="7" />
           <folding />
         </state>
       </provider>

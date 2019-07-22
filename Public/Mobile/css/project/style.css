@@ -352,9 +352,21 @@ header{
     padding: .2rem 0 ;
 }
 
+/*提款*/
+.tkxx{
+    width: 100%;
 
+}
+.tkxx .tk_title{
 
+}
 
+.tkxx .tk_con{
+    display: flex;
+    align-items: center;
+    flex-direction:column;
+
+}
 
 
 
