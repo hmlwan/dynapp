@@ -31,40 +31,25 @@
         <div class="game_cate category">
            <h1>游戏类目</h1>
             <ul>
-                <li>
-                    <img style="height: 1rem;" src="__IMG__/tupiansucai_13.jpg" alt="">
-                    <div>
-                        <h2>摇钱树</h2>
-                        <p>
-                            <span>{全部真实玩家，全网最火爆}</span>
-                            <span> | </span>
-                            <img src="__IMG__/star.png" alt="">
-                            <img src="__IMG__/star.png" alt="">
-                            <img src="__IMG__/star.png" alt="">
-                        </p>
-                        <h3>请添加渔乐王国客服QQ：1441348990(诚信在线)</h3>
-                    </div>
-                    <a href="">
-                        <button>下载游戏</button>
-                    </a>
-                </li>
-                <li>
-                    <img style="height: 1rem;" src="__IMG__/tupiansucai_13.jpg" alt="">
-                    <div>
-                        <h2>摇钱树</h2>
-                        <p>
-                            <span>{全部真实玩家，全网最火爆}</span>
-                            <span> | </span>
-                            <img src="__IMG__/star.png" alt="">
-                            <img src="__IMG__/star.png" alt="">
-                            <img src="__IMG__/star.png" alt="">
-                        </p>
-                        <h3>请添加渔乐王国客服QQ：1441348990(诚信在线)</h3>
-                    </div>
-                    <a href="">
-                        <button>下载游戏</button>
-                    </a>
-                </li>
+                <volist name="list" id="vo">
+                    <li>
+                        <img style="height: 1rem;" src="{$vo.pic}" alt="">
+                        <div>
+                            <h2>{$vo.title}</h2>
+                            <p>
+                                <span>{全部真实玩家，全网最火爆}</span>
+                                <span> | </span>
+                                <img src="__IMG__/star.png" alt="">
+                                <img src="__IMG__/star.png" alt="">
+                                <img src="__IMG__/star.png" alt="">
+                            </p>
+                            <h3>请添加渔乐王国客服QQ：1441348990(诚信在线)</h3>
+                        </div>
+                        <a href="{$vo.jump_url}" target="_blank">
+                            <button>下载游戏</button>
+                        </a>
+                    </li>
+                </volist>
             </ul>
         </div>
         <!--人气捕鱼-->

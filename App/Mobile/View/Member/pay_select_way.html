@@ -1,0 +1,132 @@
+<include file="Public:header"/>
+<body>
+<div>
+    <header>
+        <div class="gwc_bt">
+            <a href="javascript:history.back()" class="gwcdd_fh"><div class="gwcbt_fh"></div></a>
+            <div class="gwcbt_mc">充值</div>
+        </div>
+    </header>
+    <div class="wycz tkxx">
+        <p class="mem_info">
+            <span>账户：<em>huiyuan</em></span>
+            <span>余额：<em>0.00</em></span>
+        </p>
+        <div class="wycz_txt ">
+            <div class="cz_title">
+                <i></i><span>快速入款</span>
+            </div>
+            <ul class="cz_con">
+                <li>
+                    <img src="__IMG__/zfb.png" alt="">
+                    <span>充值金额范围(50-49999)元</span>
+                    <span><i class="f factive"><i class="l lactive"></i></i></span>
+                </li>
+                <li>
+                    <img src="__IMG__/zfb.png" alt="">
+                    <span>充值金额范围(50-49999)元</span>
+                    <span><i class="f"><i class="l"></i></i></span>
+                </li>
+            </ul>
+            <ul class="cz_info">
+                <li>
+                    <div>
+                        <label for=""><span>充值银行</span></label>
+                        <input type="text" name="cardnum" value="{$info.cardnum}" placeholder="请输入"/>
+                        <span class="copy">复制</span>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <label for=""><span>收款姓名</span></label>
+                        <input type="text" name="cardnum" value="{$info.cardnum}" placeholder="请输入"/>
+                        <span class="copy">复制</span>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <label for=""><span>收款账户</span></label>
+                        <input type="text" name="cardnum" value="{$info.cardnum}" placeholder="请输入"/>
+                        <span class="copy">复制</span>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <label for=""><span>开户网点</span></label>
+                        <input type="text" name="cardnum" value="{$info.cardnum}" placeholder="请输入"/>
+                        <span class="copy">复制</span>
+                    </div>
+                </li>
+                <li class="qrcode">
+                    <div>
+                        <img src="__IMG__/qrcode.png" alt="">
+                    </div>
+                </li>
+                <li class="czje">
+                    <div>
+                        <label for=""> <i></i><span>充值金额</span></label>
+                        <input type="text" name="cardnum" value="{$info.cardnum}" placeholder="请输入"/>
+
+                    </div>
+                </li>
+                <li class="ckxm">
+                    <div>
+                        <label for=""> <i></i><span>存款人姓名</span></label>
+                        <input type="text" name="cardnum" value="{$info.cardnum}" placeholder="请输入"/>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+        <div class="tk_con1">
+            <p>贴心提醒：充值完成后，请静待3-5分钟重新刷新页面，财务收到款项后会立即为您上分。</p>
+            <p>支持网银转账，ATM转账，银行柜台汇款</p>
+        </div>
+        <div class="tk_con1">
+            <p>贴心提醒：收款账号、收款姓名和二维码会不定期更换，请在获取页面最新信息后在进行充值，以避免充值无法到账。<br>
+                "充值金额"若与转帐金额不符，充值将无法准确到账。
+            </p>
+            <p>支持微信/支付宝二维码扫描</p>
+        </div>
+        <div class="confirm_btn" onclick="sub()"><span>确认提交</span></div>
+    </div>
+</div>
+<script>
+    function sub(){
+
+        var bankname = $("input[name='bankname']").val();
+        var cardname = $("input[name='cardname']").val();
+        var cardnum = $("input[name='cardnum']").val();
+        var id = $("input[name='id']").val();
+
+        if(bankname == ""||bankname == null){
+            layer.msg('请输入银行名称');
+            return false;
+        }
+        if(cardname == ""||cardname == null){
+            layer.msg('请输入用户名');
+            return false;
+        }
+        if(cardnum == ""||cardnum == null){
+            layer.msg('请输入卡号');
+            return false;
+        }
+        $.post("{:U('Member/addbank')}",{
+            bankname:bankname,
+            cardname:cardname,
+            cardnum:cardnum,
+            id:id,
+        },function(data){
+            if(data.status==1){
+                layer.msg(data.info,{icon:1});
+                window.location="/Mobile/Member/banklist";
+            }else{
+                layer.msg(data.info);
+                return false;
+            }
+        })
+    };
+
+</script>
+<include file="Public:footer"/>
+

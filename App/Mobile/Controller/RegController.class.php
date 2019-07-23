@@ -7,8 +7,10 @@ class RegController extends CommonController {
      * 显示注册界面
      */
     public function index(){
-        $pid = I('get.pid','','intval');
-        $this->assign('pid',$pid);
+        if(session('USER_KEY_ID')){
+            $this->redirect('Index/index');
+            return;
+        }
         $this->display();
     }
     /* 验证码生成 */
@@ -33,7 +35,6 @@ class RegController extends CommonController {
 
         if(IS_POST){
             //增加添加时间,IP
-            $pid = $_POST['pid'];
             $sub_data = array();
             if($_POST['password'] != $_POST['repwd']){
                 $data['status'] = 0;
@@ -43,24 +44,13 @@ class RegController extends CommonController {
             $sub_data['reg_time'] = time();
             $sub_data['ip'] = get_client_ip();
             $sub_data['status'] = 1;
-            $sub_data['pid'] = $_POST['pid'];
             $sub_data['username'] = $_POST['username'];
-            $sub_data['phone'] = $_POST['phone'];
+            $sub_data['nick'] = $_POST['username'];
             $sub_data['pwd'] = md5($_POST['password']);
-            $_SESSION['code'] = 1234;
+
             $M_member = D('Member');
-            $phone_info = M('Member')->where(array('phone'=>$_POST['phone']))->find();
             $username_info = M('Member')->where(array('username'=>$_POST['username']))->find();
-            if($_POST['yzm']!= $_SESSION['code']){
-                $data['status'] = 0;
-                $data['info'] = '验证码错误';
-                $this->ajaxReturn($data);
-            }
-            if($phone_info){
-                $data['status'] = 2;
-                $data['info'] = "手机号码已经存在";
-                $this->ajaxReturn($data);
-            }
+
             if($username_info){
                 $data['status'] = 2;
                 $data['info'] = "用户名已经存在";
@@ -76,34 +66,11 @@ class RegController extends CommonController {
                 $r = $M_member->add($sub_data);
                 if($r){
                     session('USER_KEY_ID',$r);
-                    session('USER_KEY',$_POST['phone']);
+                    session('USER_KEY',$_POST['username']);
                     session('STATUS',1);//用户状态
-                    /*父级推广操作*/
-                    if($pid){
-                        /*直推人数*/
-                        $promote_num = $this->config['promote_num'];
-                        $team_push_num = $this->config['team_push_num'];
-                        $direct_push_num = $this->config['promote_num'];
-                        $pid_info = D("Member")->get_info_by_id($pid);
 
-                        $push_num = M('member')->where(array('pid'=>$pid))->count();
-                        /*推广方式1*/
-                        if($push_num >= $promote_num && $pid_info['is_exceed_push_num'] == 0){
-                            /*增加一个星星*/
-                            M('member_info')->where(array('member_id'=>$pid))
-                                ->save(array('is_exceed_push_num'=>1,'extra_add_stars'=>1));
-                        }
-                        /*推广方式2*/
-                        $team_nums = D("Member")->childs($pid);
-                        $team_nums_arr = explode(",",$team_nums);
-                        if($push_num >= $direct_push_num && count($team_nums_arr) >= $team_push_num  && $pid_info['is_receive_partner']==0){
-                            M('member_info')->where(array('member_id'=>$pid))
-                                ->save(array('is_receive_partner'=>1));
-                        }
-                    }
                     $data['status'] = 1;
-                    $data['info'] = '注册成功，请去完善信息';
-                    $data['data'] = $_POST['username'];
+                    $data['info'] = '注册成功';
                     $this->ajaxReturn($data);
                 }else{
                     $data['status'] = 0;

@@ -12,89 +12,10 @@ class IndexController extends CommonController {
 		$this->display('Public:404');
 	}
 	public function index(){
-
-	    /*任务列表*/
-	    $model = M('pub_task');
-        $list = $model->where(array('status'=>1))->select();
-
-        /*获取匹配者*/
+        $model = M('game_list');
         $member_id = $_SESSION['USER_KEY_ID'];
         $this->assign('member_id',$member_id);
-        if($member_id){
-            $db = M('qd_record');
-            $mem_info = M('member_info')->where(array('member_id'=>$member_id))->find();
-            if($mem_info && $mem_info['is_pay_deposit'] == 1){
-                foreach ($list as $key => $value){
-                    $task_id = $value['id'];
-                    /*抢单数据*/
-                    $qd_data = $db->where(
-                        array('fk_id'=>$member_id,'task_id'=>$task_id,'status'=>array('neq',1)))
-                        ->find();
-                   if($qd_data){
-                       if($qd_data['status'] == 0){
-                           /*查找收款人*/
-                           $find_sk_data = $db->alias('q')
-                               ->field('q.*,m.username,m.phone,i.head')
-                               ->where(array('q.sk_id'=>array('neq',$member_id),'q.status'=>0,'q.reward'=>$qd_data['reward']))
-                               ->join("LEFT JOIN blue_member_info as i on i.member_id = q.sk_id")
-                               ->join("LEFT JOIN blue_member as m on m.member_id = q.sk_id")
-                               ->order("rand()")
-                               ->limit(1)
-                               ->select();
-                           $list[$key]['qd_status'] = 2; /*匹配中*/
-                           if($find_sk_data){ /*匹配成功*/
-                               $find_sk_data = $find_sk_data[0];
-                               $r1 = $db->where(array('id'=>$qd_data['id']))
-                                   ->save(array('sk_id'=>$find_sk_data['sk_id'],'status'=>2));
-                               $r2 = $db->where(array('id'=>$find_sk_data['id']))
-                                   ->save(array('fk_id'=>$qd_data['fk_id'],'status'=>2));
-                               if($r1 && $r2){
-                                   $list[$key]['qd_status'] = 1;/*匹配成功*/
-                               }
-                           }
-                       }elseif ($qd_data['status'] == 2){
-                           $list[$key]['qd_status'] = 1;/*匹配成功*/
-                       }elseif ($qd_data['status'] == 3){
-                           $list[$key]['qd_status'] = 3;/*拒绝收取*/
-                       }
-                   }
-
-                    /*收款数据*/
-                    $sk_data = $db->where(
-                        array('sk_id'=>$member_id,'task_id'=>$task_id,'status'=>array('neq',1)))
-                        ->find();
-                    if($sk_data){
-                        if($sk_data['status'] == 0){
-                            /*查找付款人*/
-                            $find_qd_data = $db->alias('q')
-                                ->field('q.*,m.username,m.phone,i.head')
-                                ->where(array('q.fk_id'=>array('neq',$member_id),'q.status'=>0,'q.reward'=>$qd_data['reward']))
-                                ->join("LEFT JOIN blue_member_info as i on i.member_id = q.fk_id")
-                                ->join("LEFT JOIN blue_member as m on m.member_id = q.fk_id")
-                                ->order("rand()")
-                                ->limit(1)
-                                ->select();
-                            $list[$key]['sk_status'] = 2; /*匹配中*/
-                            if($find_qd_data){ /*匹配成功*/
-                                $find_qd_data = $find_qd_data[0];
-                                $r3 = $db->where(array('id'=>$sk_data['id']))
-                                    ->save(array('fk_id'=>$find_qd_data['fk_id'],'status'=>2));
-                                $r4 = $db->where(array('id'=>$find_qd_data['id']))
-                                    ->save(array('sk_id'=>$sk_data['sk_id'],'status'=>2));
-                                if($r3 && $r4){
-                                    $list[$key]['sk_status'] = 1;/*匹配成功*/
-                                }
-                            }
-                        }elseif ($sk_data['status'] == 2){
-                            $list[$key]['sk_status'] = 1;/*匹配成功*/
-                        }elseif ($sk_data['status'] == 3){
-                            $list[$key]['sk_status'] = 3;/*拒绝收取*/
-                        }
-                    }
-
-                }
-            }
-        }
+        $list = $model->select();
         $this->assign('list',$list);
         $this->display();
      }

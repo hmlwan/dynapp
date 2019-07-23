@@ -1,0 +1,105 @@
+<include file="Public:header"/>
+<body>
+<div>
+    <header>
+        <div class="gwc_bt">
+            <a href="javascript:history.back()" class="gwcdd_fh"><div class="gwcbt_fh"></div></a>
+            <div class="gwcbt_mc">充值</div>
+        </div>
+    </header>
+    <div class="wycz tkxx">
+
+        <div class="wycz_txt ">
+            <ul class="cz_info">
+                <li></li>
+                <li>
+                    <div>
+                        <label for=""><span>充值银行</span></label>
+                        <input type="text" name="cardnum" value="{$info.cardnum}" placeholder="请输入"/>
+                        <span class="copy">复制</span>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <label for=""><span>收款姓名</span></label>
+                        <input type="text" name="cardnum" value="{$info.cardnum}" placeholder="请输入"/>
+                        <span class="copy">复制</span>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <label for=""><span>收款账户</span></label>
+                        <input type="text" name="cardnum" value="{$info.cardnum}" placeholder="请输入"/>
+                        <span class="copy">复制</span>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <label for=""><span>开户网点</span></label>
+                        <input type="text" name="cardnum" value="{$info.cardnum}" placeholder="请输入"/>
+                        <span class="copy">复制</span>
+                    </div>
+                </li>
+                <li class="qrcode">
+                    <div>
+                        <img src="__IMG__/qrcode.png" alt="">
+                    </div>
+                </li>
+                <li class="czje">
+                    <div>
+                        <label for=""> <i></i><span>充值金额</span></label>
+                        <input type="text" name="cardnum" readonly value="{$info.cardnum}" placeholder="请输入"/>
+
+                    </div>
+                </li>
+                <li class="ckxm">
+                    <div>
+                        <label for=""> <i></i><span>存款人姓名</span></label>
+                        <input type="text" name="cardnum" readonly value="{$info.cardnum}" placeholder="请输入"/>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+        <div class="confirm_btn" onclick="sub()"><span>返回首页</span></div>
+    </div>
+</div>
+<script>
+    function sub(){
+
+        var bankname = $("input[name='bankname']").val();
+        var cardname = $("input[name='cardname']").val();
+        var cardnum = $("input[name='cardnum']").val();
+        var id = $("input[name='id']").val();
+
+        if(bankname == ""||bankname == null){
+            layer.msg('请输入银行名称');
+            return false;
+        }
+        if(cardname == ""||cardname == null){
+            layer.msg('请输入用户名');
+            return false;
+        }
+        if(cardnum == ""||cardnum == null){
+            layer.msg('请输入卡号');
+            return false;
+        }
+        $.post("{:U('Member/addbank')}",{
+            bankname:bankname,
+            cardname:cardname,
+            cardnum:cardnum,
+            id:id,
+        },function(data){
+            if(data.status==1){
+                layer.msg(data.info,{icon:1});
+                window.location="/Mobile/Member/banklist";
+            }else{
+                layer.msg(data.info);
+                return false;
+            }
+        })
+    };
+
+</script>
+<include file="Public:footer"/>
+

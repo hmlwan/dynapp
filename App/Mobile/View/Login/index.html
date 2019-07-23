@@ -32,18 +32,10 @@
         }
         $.post("{:U('Login/op_login')}",{username:username,pwd:password},function(data){
             if(data.status == 1){
-                if(data.is_complete_info == 0){
-                    layer.msg("登录成功，请去完善个人信息",{icon:1});
-                    window.setTimeout(function(){
-                        window.location="{:U('FullInfo/full_info')}";
-                    },1000);
-                }else{
-                    layer.msg("登录成功",{icon:1});
-                    window.setTimeout(function(){
-                        window.location="{:U('Login/index')}";
-                    },1000);
-                }
-
+                layer.msg("登录成功",{icon:1});
+                window.setTimeout(function(){
+                    window.location="{:U('Index/index')}";
+                },1000);
             }else{
                 layer.msg(data.info);
                 return false;

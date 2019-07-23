@@ -21,11 +21,30 @@
             2. 是否能取款：<font color="red">是 </font>
         </div>
         <div class="tk_title">消费比例</div>
-        <div class="tk_con">
-
+        <div class="tk_con sqtk">
+            <div>
+                <label for=""> <i></i><span>银 行 卡</span></label>
+                <input type="text" name="cardnum" value="{$info.cardnum}"/>
+            </div>
+            <div>
+                <label for=""> <i></i><span>真实姓名</span></label>
+                <input type="text" name="cardnum" value="{$info.cardnum}" />
+            </div>
+            <div>
+                <label for=""> <i></i><span>账户余额</span></label>
+                <input type="text" name="cardnum" value="{$info.cardnum}" />
+            </div>
+            <div>
+                <label for=""> <i></i><span>取款金额</span></label>
+                <input type="text" name="cardnum" value="{$info.cardnum}"  placeholder="最少提现50元"  />
+            </div>
+            <div>
+                <label for=""> <i></i><span>提款密码</span></label>
+                <input type="password" name="cardnum" value="{$info.cardnum}" placeholder="请输入取款密码" />
+            </div>
         </div>
 
-        <div class="confirm_btn" onclick="sub()"><span>下一步</span></div>
+        <div class="confirm_btn" onclick="sub()"><span>申请提现</span></div>
     </div>
 </div>
 <script>

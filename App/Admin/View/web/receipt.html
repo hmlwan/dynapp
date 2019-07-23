@@ -8,7 +8,7 @@
             <i class="icon-font"></i>
             <a href="{:U('Index/index')}">首页</a>
             <span class="crumb-step">&gt;</span>
-            <span class="crumb-name">工作类型管理</span>
+            <span class="crumb-name">收款方式</span>
         </div>
     </div>
     <div class="search-wrap">
@@ -18,9 +18,9 @@
 
         <div class="result-title">
             <div class="result-list">
-                <a href="{:U('Job/job_add')}#2#0"><i class="icon-font"></i>新增类型</a>
+                <a href="{:U('Web/receipt_add')}#2#0"><i class="icon-font"></i>新增收款类型</a>
             </div>
-            <form action="{:U('Job/index')}" method="get">
+            <form action="{:U('Web/receipt')}" method="get">
                 <table class="search-tab">
                     <tr>
                         <td width="50">名称:</td>
@@ -35,37 +35,43 @@
                 <tr>
 
                     <th>ID</th>
-                    <th>工作类型名称</th>
-                    <th>概述</th>
-                    <th>图片</th>
-                    <th>状态</th>
-                    <th>操作人</th>
+                    <th>银行名称</th>
+                    <th>类型</th>
+                    <th>logo图片</th>
+                    <th>收款姓名</th>
+                    <th>银行账户</th>
+                    <th>开户网点</th>
+                    <th>跳转链接</th>
                     <th>创建时间</th>
                     <th>操作</th>
                 </tr>
                 <volist name='info' id='vo'>
                     <tr>
-                        <td>{$vo['type_id']}</td>
-                        <td>{$vo['type_name']}</td>
-                        <td>{$vo['introduce']}</td>
+                        <td>{$vo['id']}</td>
+                        <td>{$vo['bank_name']}</td>
                         <td>
-                            <a href="{$vo['img']}" target="_blank">
-                                <img src="{$vo['img']}" style="width: 100px;height: 100px" alt="">
+                            <if condition="$vo['type'] eq 1">
+                                支付宝
+                            <elseif condition="$vo['type'] eq 2" />
+                                微信
+                            <else />
+                                银行卡
+                            </if>
+                        </td>
+                        <td>
+                            <a href="{$vo['logo_img']}" target="_blank">
+                                <img src="{$vo['logo_img']}" style="width: 80px;height: 80px" alt="">
                             </a>
 
                         </td>
-                        <td><if condition="$vo['status'] eq 1">
-                                开启
-                            </if>
-                            <if condition="$vo['status'] eq 0">
-                                关闭
-                            </if>
-                        </td>
-                        <td>{$vo['op_man']}</td>
+                        <td>{$vo['receipt_name']}</td>
+                        <td>{$vo['receipt_account']}</td>
+                        <td>{$vo['account_addr']}</td>
+                        <td>{$vo['url']}</td>
                         <td>{$vo['op_time'] | date="Y-m-d H:i:s",###}</td>
                         <td>
-                            <a class="link-update" href="{:U('Job/job_add#2#0',array('id'=>$vo['type_id']))}#13#0">修改|</a>
-                            <a href="javascript:void(0)" class="link-del" onclick="cexiao({$vo.type_id})">删除</a>
+                            <a class="link-update" href="{:U('Web/receipt_add#2#0',array('id'=>$vo['id']))}#13#0">修改|</a>
+                            <a href="javascript:void(0)" class="link-del" onclick="cexiao({$vo.id})">删除</a>
                         </td>
                     </tr>
                 </volist>
@@ -81,12 +87,12 @@
 </body>
 </html>
 <script>
-    function cexiao(type_id){
+    function cexiao(id){
         layer.confirm('确定删除吗？', {
             btn: ['确定','取消'], //按钮
             title: '撤销删除'
         }, function(){
-            $.post("{:U('Job/del')}",{id:type_id,model:'job_type'},function(data){
+            $.post("{:U('Web/del')}",{id:id,model:'receipt_type'},function(data){
                 if(data['status'] == 1){
                     layer.msg(data['info'],{icon:1});
                     setTimeout(function(){location.reload();},1000);

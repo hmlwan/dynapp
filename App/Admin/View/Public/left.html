@@ -72,41 +72,18 @@
                 </li>
                 </notempty>
 
-                <notempty name='job_nav'>
+                <notempty name='web_nav'>
                 <li>
-                    <a href="#"><i class="iconfont">&#xe6c8;</i><span class="fsize">工作管理</span></a>
+                    <a href="#"><i class="iconfont">&#xe631;</i><span class="fsize">网站管理</span></a>
                      <ul class="sub-menu">
-                        <volist name='job_nav' id='vo'>
+                        <volist name='web_nav' id='vo'>
                             <li><a href="{$vo.nav_url}#2#{$key}"><i class="iconfont">{$vo.nav_e}</i>&nbsp;{$vo.nav_name}</a></li>
                         </volist>
                     </ul>
                 </li>
-               </notempty>
-
-                <notempty name='train_nav'>
-                    <li>
-                        <a href="#"><i class="iconfont">&#xe631;</i><span class="fsize">培训管理</span></a>
-                        <ul class="sub-menu">
-                            <volist name='train_nav' id='vo'>
-                                <li><a href="{$vo.nav_url}#3#{$key}"><i class="iconfont">{$vo.nav_e}</i>&nbsp;{$vo.nav_name}</a></li>
-                            </volist>
-                        </ul>
-                    </li>
-                </notempty>
-
-                <notempty name='company_nav'>
-                    <li>
-                        <a href="#"><i class="iconfont">&#xe631;</i><span class="fsize">公司管理</span></a>
-                        <ul class="sub-menu">
-                            <volist name='company_nav' id='vo'>
-                                <li><a href="{$vo.nav_url}#4#{$key}"><i class="iconfont">{$vo.nav_e}</i>&nbsp;{$vo.nav_name}</a></li>
-                            </volist>
-                        </ul>
-                    </li>
-                </notempty>
                 <notempty name='record_nav'>
                     <li>
-                        <a href="#"><i class="iconfont">&#xe631;</i><span class="fsize">用户预约/培训记录</span></a>
+                        <a href="#"><i class="iconfont">&#xe631;</i><span class="fsize">上分/下分记录</span></a>
                         <ul class="sub-menu">
                             <volist name='record_nav' id='vo'>
                                 <li><a href="{$vo.nav_url}#5#{$key}"><i class="iconfont">{$vo.nav_e}</i>&nbsp;{$vo.nav_name}</a></li>

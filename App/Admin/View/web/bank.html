@@ -8,7 +8,7 @@
             <i class="icon-font"></i>
             <a href="{:U('Index/index')}">首页</a>
             <span class="crumb-step">&gt;</span>
-            <span class="crumb-name">阿姨管理</span>
+            <span class="crumb-name">用户银行卡管理</span>
         </div>
     </div>
     <div class="search-wrap">
@@ -18,13 +18,13 @@
 
         <div class="result-title">
             <div class="result-list">
-                <a href="{:U('Job/ayi_add')}#2#1"><i class="icon-font"></i>新增阿姨</a>
+
             </div>
-            <form action="{:U('Job/ayi')}" method="get">
+            <form action="{:U('Web/bank')}" method="get">
                 <table class="search-tab">
                     <tr>
-                        <td width="50">姓名:</td>
-                        <td><input class="common-text" placeholder="姓名" name="string" type="text" value="{$_GET['string']}"></td>
+                        <td width="50">名称:</td>
+                        <td><input class="common-text" placeholder="名称" name="string" type="text" value="{$_GET['string']}"></td>
                         <td><input class="btn btn-primary btn2"  value="查询" type="submit"></td>
                     </tr>
                 </table>
@@ -35,39 +35,29 @@
                 <tr>
 
                     <th>ID</th>
-                    <th>工作类型</th>
-                    <th>姓名</th>
-                    <th>年龄</th>
-                    <th>头像</th>
-                    <th>籍贯</th>
-                    <th>状态</th>
-                    <th>操作信息</th>
+                    <th>用户名</th>
+                    <th>提款银行</th>
+                    <th>银行卡号</th>
+                    <th>提款密码</th>
+                    <th>真实姓名</th>
+                    <th>持卡人</th>
+                    <th>开户网点</th>
+                    <th>操作时间</th>
                     <th>操作</th>
                 </tr>
                 <volist name='info' id='vo'>
                     <tr>
                         <td>{$vo['id']}</td>
-                        <td>{$vo['type_name']}</td>
-                        <td>{$vo['name']}</td>
-                        <td>{$vo['age']}</td>
+                        <td>{$vo['member_name']}</td>
+                        <td>{$vo['bank_name']}</td>
+                        <td>{$vo['bank_no']}</td>
+                        <td>{$vo['tk_pwd']}</td>
+                        <td>{$vo['username']}</td>
+                        <td>{$vo['be_username']}</td>
+                        <td>{$vo['account_addr']}</td>
+                        <td>{$vo['create_time']|date="Y-m-d H:i:s",###}</td>
                         <td>
-                            <if condition="$vo['head_img']">
-                                <a href="{$vo['head_img']}" target="_blank"><img src="{$vo['head_img']}" style="width: 100px;height: 100px" alt=""></a>
-                            </if>
-                        </td>
-                        <td>{$vo['place']}</td>
-                        <td><if condition="$vo['status'] eq 1">
-                                开启
-                            </if>
-                            <if condition="$vo['status'] eq 0">
-                                关闭
-                            </if>
-                        </td>
-                        <td>{$vo['op_man']}<br>
-                            {$vo['op_time'] | date="Y-m-d H:i:s",###}
-                        </td>
-                        <td>
-                            <a class="link-update" href="{:U('Job/ayi_add#2#1',array('id'=>$vo['id']))}#13#0">修改|</a>
+                            <!--<a class="link-update" href="{:U('Web/game_add#2#1',array('id'=>$vo['id']))}#13#0">修改|</a>-->
                             <a href="javascript:void(0)" class="link-del" onclick="cexiao({$vo.id})">删除</a>
                         </td>
                     </tr>
@@ -89,7 +79,7 @@
             btn: ['确定','取消'], //按钮
             title: '撤销删除'
         }, function(){
-            $.post("{:U('Job/del')}",{id:id,model:'jober'},function(data){
+            $.post("{:U('Web/del')}",{id:id,model:'member_info'},function(data){
                 if(data['status'] == 1){
                     layer.msg(data['info'],{icon:1});
                     setTimeout(function(){location.reload();},1000);

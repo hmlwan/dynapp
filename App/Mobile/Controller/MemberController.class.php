@@ -186,12 +186,18 @@ class MemberController extends CommonController {
             $this->display();
         }
     }
+    /*提现*/
     public function withdraw_money(){
         $this->display();
     }
-
-
-
+    /*充值*/
+    public function pay_select_way(){
+        $this->display();
+    }
+    /*充值成功*/
+    public function pay_success(){
+        $this->display();
+    }
 
 
 

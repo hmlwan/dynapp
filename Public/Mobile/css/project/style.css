@@ -355,18 +355,264 @@ header{
 /*提款*/
 .tkxx{
     width: 100%;
+    margin-top: 1rem;
 
 }
 .tkxx .tk_title{
-
+    text-align: center;
+    height: .8rem;
+    line-height: .8rem;
+    width: 100%;
+    background-color: #efeff4;
+    border-bottom: 1px solid #e1e1e1;
+    font-size: .32rem;
 }
-
 .tkxx .tk_con{
-    display: flex;
-    align-items: center;
-    flex-direction:column;
+    font-size: .3rem;
+    padding: .3rem .2rem;
+    line-height: 1.5;
+}
+.sqtk div label{
+    height: 1rem;
+    line-height: 1rem;
+    display: inline-block;
+}
+.sqtk input{
+    width: 65%;
+    border: 0;
+    border-bottom: 1px solid #e7e7e7;
+    padding: .2rem;
+    font-size: .3rem;
+}
+
+.sqtk  div:first-child i{
+    background: url("../../images/ico-bank.png") no-repeat bottom;
+    height: .4rem;
+    width: .5rem;
+    background-size: 100%;
+    display: inline-block;
+    margin-right: .2rem;
+}
+.sqtk div:nth-child(2) i{
+    background: url("../../images/ico-nickname.png") no-repeat bottom;
+    height: .5rem;
+    width: .5rem;
+    background-size: 100%;
+    display: inline-block;
+    margin-right: .2rem;
+}
+
+.sqtk div:nth-child(3) i{
+    background: url("../../images/ico-wallet.png") no-repeat bottom;
+    height: .6rem;
+    width: .5rem;
+    background-size: 100%;
+    display: inline-block;
+    margin-right: .2rem;
+}
+.sqtk div:nth-child(4) i{
+    background: url("../../images/ico-money.png") no-repeat bottom;
+    height: .5rem;
+    width: .5rem;
+    background-size: 100%;
+    display: inline-block;
+    margin-right: .2rem;
+}
+.sqtk div:nth-child(5) i{
+    background: url("../../images/ico-modifyPas.png") no-repeat bottom;
+    height: .6rem;
+    width: .5rem;
+    background-size: 80%;
+    display: inline-block;
+    margin-right: .2rem;
+}
+.tkxx .confirm_btn{
+    color:#fff;
+    width: 94%;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+/*充值*/
+.wycz{
+    width: 100%;
+    margin-top: 1rem;
+}
+.wycz .mem_info{
+    text-align: center;
+    font-size: .25rem;
+    height: 1rem;
+    line-height: 1rem;
+}
+.wycz .mem_info em{
+    color:#dc5d55;
+    font-size: .32rem;
+    font-weight: bold;
+}
+.wycz .mem_info span{
+    margin-right: .5rem;
+}
+.wycz_txt{
+    width: 100%;
+}
+
+.wycz_txt div{
+    height: 1rem;
+    line-height: 1rem;
+}
+.wycz_txt .cz_title{
+    background-color: rgb(245, 245, 245);
+    border-bottom: 1px solid #e1e1e1;
+    font-size: .35rem;
+    padding-left: .5rem;
+    height: 1rem;
+    line-height: 1rem;
+}
+.wycz_txt .cz_title i{
+    background: url("../../images/ico-bot.png") no-repeat center;
+    display: inline-block;
+    height: 1rem;
+    width: .5rem;
+    background-size: 100%;
+    float: left;
+    margin-right: .2rem;
+}
+.wycz_txt .cz_con{
+    width: 100%;
 
 }
+
+.wycz_txt .cz_con  li{
+    display: flex;
+    height: 1rem;
+    line-height: 1rem;
+    justify-content: space-around;
+    align-items: center;
+    font-size: .25rem;
+    border-bottom: 1px solid #dedede;
+}
+.cz_con li img{
+    height: .6rem;
+}
+.cz_con li span .f{
+    width: .4rem;
+    height: .4rem;
+    border: 2px solid #ccc;
+    display: inline-block;
+    border-radius: 50%;
+    float: right;
+}
+.cz_con li span .l{
+    width: .3rem;
+    height: .3rem;
+    border-radius: 50%;
+    background-color: #ccc;
+    display: inline-block;
+    margin-right: .05rem;
+    margin-top: .05rem;
+    float: right;
+
+}
+.cz_con li span .factive{
+
+    border: 2px solid #dc5d55;
+}
+.cz_con li span .lactive{
+    background-color: #dc5d55;
+}
+.wycz_txt .cz_con:after{
+    display: inline-block;
+    clear: both;
+    content: '';
+}
+
+.cz_info li{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: .8rem;
+    line-height: .8rem;
+    padding: 0 .2rem;
+    font-size: .32rem;
+    border-bottom: 1px solid #e7e7e7;
+}
+.cz_info input{
+    border: 0;
+    width: 52%;
+    font-size: .3rem;
+    padding-left: .2rem;
+}
+.czje div i{
+    background: url("../../images/ico-money.png") no-repeat center;
+    height: 1rem;
+    width: .5rem;
+    float: left;
+    background-size: 100%;
+}
+.cz_info div .copy {
+    background: #EFAC4D;
+    color: #fff;
+    padding: .1rem .2rem;
+    border-radius: 10%;
+}
+.cz_info .qrcode{
+    height: 3rem;
+}
+.qrcode div{
+    height: 3rem;
+}
+.qrcode div img{
+    height: 3rem;
+    width: 3rem;
+}
+.ckxm div i{
+    background: url("../../images/ico-nickname.png") no-repeat center;
+    height: 1rem;
+    width: .5rem;
+    float: left;
+    background-size: 100%;
+}
+
+.czje label{
+    margin-left: -1.1rem;
+    float: left;
+}
+.czje input{
+    padding-right: .4rem;
+}
+.ckxm input{
+    padding-right: .2rem;
+}
+
+.ckxm label{
+    margin-left: -1.1rem;
+    float: left;
+}
+ .tk_con1 p{
+    padding: .2rem .3rem;
+    font-size: .28rem;
+    border-bottom: 1px solid #e7e7e7;
+    line-height: 1.5;
+
+}
+.tk_con1 p:first-child{
+    color: red;
+}
+.wycz .confirm_btn{
+    margin-top: .5rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -131,16 +131,9 @@ class LoginController extends CommonController{
         session('USER_KEY',$info['phone']);
         session('STATUS',$info['status']);//用户状态
 
-        $mem_info = M("member_info")
-            ->where(array('member_id'=>$info['member_id']))
-            ->find();
-        $is_complete_info = 1;
-        if(!$mem_info || (!$mem_info['alipay_logo'] && !$mem_info['wechat_logo'])){
-            $is_complete_info = 0;
-        }
+
         $data['status']=1;
         $data['info']="登录成功";
-        $data['is_complete_info'] = $is_complete_info;
         $this->ajaxReturn($data);
     }
 
